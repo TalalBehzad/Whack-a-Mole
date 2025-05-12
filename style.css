@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Tagesschrift&display=swap');
+
+
+body {
+    font-family: "Pixelify Sans", system-ui;
+  text-align: center;
+  background-size: cover; 
+  background: url("https://t4.ftcdn.net/jpg/09/86/54/63/360_F_986546394_d3jsxWIbjIcANAs4evAM6x9QsC5n2EVS.jpg");
+}
+
+#board {
+    width: 550px;
+    height: 550px;
+    background: url(https://img.itch.zone/aW1hZ2UvMjA4MTI3Lzk3NTQ2NS5wbmc=/347x500/QtOzYA.png);
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    border: 3px solid snow;
+    border-radius: 30px;
+}
+
+/*we can use the border-radius to create a proper alignment when closing the board. 
