@@ -20,4 +20,11 @@ body {
     border-radius: 30px;
 }
 
-/*we can use the border-radius to create a proper alignment when closing the board. 
+/*we can use the border-radius to create a proper alignment when closing the board.*/
+
+#board div {
+  width: 180px;
+  height: 180px;
+  background-image: url('Mole.png');
+  background-size: cover;
+}
