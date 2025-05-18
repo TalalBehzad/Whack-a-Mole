@@ -25,6 +25,10 @@ body {
 #board div {
   width: 180px;
   height: 180px;
-  background-image: url('Mole.png');
-  background-size: cover;
+  background-image: url('./images/HoleBack.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
+
