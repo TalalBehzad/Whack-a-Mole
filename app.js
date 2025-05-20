@@ -1,5 +1,7 @@
 let currentMole;//This represents the current moletile
 let currentbomb;//This represents the bomb tile
+let score = 0 //Represents the score 
+let gameOver = false; //Represents the gameover
 
 window.onload = function () {
  setGame();
@@ -13,6 +15,7 @@ for (let i = 0; i < 9; i++ ) {
       // We will use the <div> id= '0-8' </div> to assign each tile an ID
    let tile = document.createElement('div');
    tile.id = i.toString();
+   tile.addEventListener('click', selectTile);
    document.getElementById('board').appendChild(tile);
 }
 setInterval(setMole, 1000); //We will use 1000 miliseconds which equals to 1 seconds for everytime the Mole appears on the screen.
@@ -21,6 +24,10 @@ setInterval(setbomb, 2000); //We will use 2000 miliseconds which equals to 2 sec
 
 
 function setMole() {
+   if (gameOver) {
+      return;
+   }
+   //By adding a gameover if for both the set mole function and the bomb function, this makes it so that when the game is over the mole and bomb stop moving all togather.
    if (currentMole) {
       currentMole.innerHTML = '';
    }
@@ -43,6 +50,9 @@ function getRandomTile() {
 
 
 function setbomb() {
+   if (gameOver) {
+      return;
+   }
    if (currentbomb) {
       currentbomb.innerHTML = '';
    }
@@ -63,3 +73,20 @@ function setbomb() {
 }
 
 
+
+function selectTile() {
+   if (gameOver) {
+      return;
+   }
+   
+   if (this === currentMole) {
+      score += 10;
+      document.getElementById('score').innerText = score.toString(); 
+      //This makes it so that the score gets updated each time the mole gets clicked on 
+   }
+   else if (this === currentbomb) {
+      document.getElementById('score').innerText = 'GAME OVER: ' + score.toString();
+      gameOver = true;
+      //This creates for us a gameover once the bomb has been clicked accidently. 
+   }
+}

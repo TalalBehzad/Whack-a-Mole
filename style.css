@@ -34,4 +34,11 @@ body {
 #board div img {
   width: 100px;
   height: 100px;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
+/* By adding these 5 lines of code, this makes it so that the images in the game can't be highlighted or dragged which could affect the immersion of the game when playing
