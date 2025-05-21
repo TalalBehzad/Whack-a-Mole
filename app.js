@@ -82,6 +82,7 @@ function selectTile() {
    if (this === currentMole) {
       score += 10;
       document.getElementById('score').innerText = score.toString(); 
+      currentMole.querySelector('img').src = './images/MoleHit.png';
       //This makes it so that the score gets updated each time the mole gets clicked on 
    }
    else if (this === currentbomb) {
@@ -93,7 +94,7 @@ function selectTile() {
 
 //progress bar countdown timer
 const progressBarElement = document.querySelector('#progress-bar')
-const gameDuration = 60; //represents the seconds for the bar
+const gameDuration = 30; //represents the seconds for the bar
 let barNum = gameDuration*1000;
 const barDen = gameDuration*1000;
 const barInterval = setInterval(progressbarframe, 10);
@@ -101,6 +102,7 @@ const barInterval = setInterval(progressbarframe, 10);
 function progressbarframe() {
    if (barNum <= 0) {
       clearInterval(barInterval);
+      gameOver=true
       tile.removeEventListener('click', selectTile);//not working
    }
    else {
@@ -117,3 +119,31 @@ function progressbarframe() {
    }
 }
 }
+
+
+//win/lose logic 
+function gameover(){
+if (gameOver) {
+      return;
+   }
+}
+if (score >= 300) {
+   gameOver('You Win!');
+} else {
+   gameOver('Times up, you lose!');
+}
+
+function init(){
+currentMole;
+currentbomb;
+score = 0 
+gameOver = false; 
+progressBarElement = document.querySelector('#progress-bar')
+gameDuration = 30; //represents the seconds for the bar
+barNum = gameDuration*1000;
+barDen = gameDuration*1000;
+barInterval = setInterval(progressbarframe, 10);
+
+}
+const resetBtn = document.getElementById('reset'); 
+resetBtn.addEventListener('click', init);
