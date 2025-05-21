@@ -90,3 +90,30 @@ function selectTile() {
       //This creates for us a gameover once the bomb has been clicked accidently. 
    }
 }
+
+//progress bar countdown timer
+const progressBarElement = document.querySelector('#progress-bar')
+const gameDuration = 60; //represents the seconds for the bar
+let barNum = gameDuration*1000;
+const barDen = gameDuration*1000;
+const barInterval = setInterval(progressbarframe, 10);
+
+function progressbarframe() {
+   if (barNum <= 0) {
+      clearInterval(barInterval);
+      tile.removeEventListener('click', selectTile);//not working
+   }
+   else {
+   barNum-=10;
+   const currentbarNum = barNum/barDen;
+   if(currentbarNum<=0.10) {
+   progressBarElement.setAttribute('style', `width: ${100*currentbarNum}%; background-color: #ff3300;`);
+   }
+   else if(currentbarNum<=0.25) {
+   progressBarElement.setAttribute('style', `width: ${100*currentbarNum}%; background-color: #ff9f40;`);
+   }
+   else {
+   progressBarElement.setAttribute('style', `width: ${100*currentbarNum}%;`);
+   }
+}
+}
