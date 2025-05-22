@@ -23,6 +23,30 @@ setInterval(setbomb, 2000); //We will use 2000 miliseconds which equals to 2 sec
 }
 
 
+function init(){
+   clearInterval(barInterval);
+   gameOver = false
+   score = 0
+   gameDuration = 30;
+   currentMole = '';
+   currentbomb = '';
+   currentbomb.innerHTML = '';
+   currentMole.innerHTML = '';
+   barInterval = setInterval(progressbarframe, 10);
+   barNum = gameDuration*1000;
+   barDen = gameDuration*1000;
+   currentbarNum = barNum/barDen;
+   document.getElementById('score').textContent = '0';
+   document.getElementById('message').textContent = '';
+   document.getElementById('board').innerHTML = '';
+   setInterval(setMole, 1000); 
+   setInterval(setbomb, 2000);
+   num = getRandomTile();
+   currentbarNum = barNum/barDen;
+   setGame();
+}
+
+
 function setMole() {
    if (gameOver) {
       return;
@@ -93,11 +117,11 @@ function selectTile() {
 }
 
 //progress bar countdown timer
-const progressBarElement = document.querySelector('#progress-bar')
-const gameDuration = 30; //represents the seconds for the bar
+let progressBarElement = document.querySelector('#progress-bar')
+let gameDuration = 30; //represents the seconds for the bar
 let barNum = gameDuration*1000;
 const barDen = gameDuration*1000;
-const barInterval = setInterval(progressbarframe, 10);
+let barInterval = setInterval(progressbarframe, 10);
 
 function progressbarframe() {
    if (barNum <= 0) {
@@ -107,7 +131,7 @@ function progressbarframe() {
    }
    else {
    barNum-=10;
-   const currentbarNum = barNum/barDen;
+   let currentbarNum = barNum/barDen;
    if(currentbarNum<=0.10) {
    progressBarElement.setAttribute('style', `width: ${100*currentbarNum}%; background-color: #ff3300;`);
    }
@@ -132,6 +156,11 @@ function endgame(){
  }
 }
 
+
+const resetBtn = document.getElementById('reset'); 
+resetBtn.addEventListener('click', init);
+
+
 // function render() {
 // gameOver();
 // }
@@ -153,5 +182,3 @@ function endgame(){
 // barInterval = setInterval(progressbarframe, 10);
 
 // }
-// const resetBtn = document.getElementById('reset'); 
-// resetBtn.addEventListener('click', init);

@@ -6,13 +6,20 @@ body {
     font-family: "Pixelify Sans", system-ui;
   text-align: center;
   background-size: cover; 
-  background: url("https://t4.ftcdn.net/jpg/09/86/54/63/360_F_986546394_d3jsxWIbjIcANAs4evAM6x9QsC5n2EVS.jpg");
+  background: url('https://www.shutterstock.com/image-vector/8bit-pixel-desert-landscape-arcade-600nw-2209774435.jpg');
 }
 
+
+#reset {
+  color: brown;
+  padding: 10px, 15px;
+  border-radius: 8px;
+}
 #board {
     width: 550px;
     height: 550px;
     background: url(https://img.itch.zone/aW1hZ2UvMjA4MTI3Lzk3NTQ2NS5wbmc=/347x500/QtOzYA.png);
+    background-position: center;
     display: flex;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -52,6 +59,7 @@ body {
 
 #progress-bar-container {
 width: 80%;
+height: 20px;
 margin: 0 auto 10px auto;
 background-color: #532706;
 border-radius: 5px;
