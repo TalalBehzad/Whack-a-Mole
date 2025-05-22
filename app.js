@@ -101,9 +101,9 @@ const barInterval = setInterval(progressbarframe, 10);
 
 function progressbarframe() {
    if (barNum <= 0) {
+      endgame();
       clearInterval(barInterval);
       gameOver=true
-      tile.removeEventListener('click', selectTile);//not working
    }
    else {
    barNum-=10;
@@ -122,28 +122,36 @@ function progressbarframe() {
 
 
 //win/lose logic 
-function gameover(){
-if (gameOver) {
-      return;
-   }
-}
-if (score >= 300) {
-   gameOver('You Win!');
-} else {
-   gameOver('Times up, you lose!');
+function endgame(){
+   clearInterval(barInterval);
+   gameOver = true;
+ if (score >= 300) {
+   document.getElementById('message').textContent = 'YOU WON!';
+ } else {
+   document.getElementById('message').textContent = 'You Lost!';
+ }
 }
 
-function init(){
-currentMole;
-currentbomb;
-score = 0 
-gameOver = false; 
-progressBarElement = document.querySelector('#progress-bar')
-gameDuration = 30; //represents the seconds for the bar
-barNum = gameDuration*1000;
-barDen = gameDuration*1000;
-barInterval = setInterval(progressbarframe, 10);
+// function render() {
+// gameOver();
+// }
+// if (score >= 300) {
+//    gameOver('You Win!');
+// } else {
+//    gameOver('Times up, you lose!');
+// }
 
-}
-const resetBtn = document.getElementById('reset'); 
-resetBtn.addEventListener('click', init);
+// function init(){
+// currentMole;
+// currentbomb;
+// score = 0 
+// gameOver = false; 
+// progressBarElement = document.querySelector('#progress-bar')
+// gameDuration = 30; //represents the seconds for the bar
+// barNum = gameDuration*1000;
+// barDen = gameDuration*1000;
+// barInterval = setInterval(progressbarframe, 10);
+
+// }
+// const resetBtn = document.getElementById('reset'); 
+// resetBtn.addEventListener('click', init);
