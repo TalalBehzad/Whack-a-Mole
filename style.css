@@ -12,8 +12,11 @@ body {
 
 #reset {
   color: brown;
-  padding: 10px, 15px;
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3 ease;
 }
 #board {
     width: 550px;
@@ -27,7 +30,6 @@ body {
     border-radius: 30px;
 }
 
-/*we can use the border-radius to create a proper alignment when closing the board.*/
 
 #board div {
   width: 180px;
@@ -48,14 +50,12 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-/* By adding these 5 lines of code, this makes it so that the images in the game can't be highlighted or dragged which could affect the immersion of the game when playing*/
 
 body {
   cursor: url(images/pack2292.png), pointer;
 
 }
 
-/* our progress bar will represent the timer*/
 
 #progress-bar-container {
 width: 80%;
@@ -73,3 +73,7 @@ border-radius: 5px;
 transition-duration: 0.5s;
 transition-property: background-color;
 }
+
+/*32 we can use the border-radius to create a proper alignment when closing the board.*/
+/*53 By adding these 5 lines of code, this makes it so that the images in the game can't be highlighted or dragged which could affect the immersion of the game when playing*/
+/*59 our progress bar will represent the timer*/
