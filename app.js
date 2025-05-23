@@ -2,9 +2,13 @@ let currentMole;//This represents the current moletile
 let currentbomb;//This represents the bomb tile
 let score = 0 //Represents the score 
 let gameOver = false; //Represents the gameover
+let moleInterval;
+let bombInterval;
 
 window.onload = function () {
  setGame();
+moleInterval = setInterval(setMole, 1000); //We will use 1000 miliseconds which equals to 1 seconds for everytime the Mole appears on the screen.
+bombInterval = setInterval(setbomb, 2000);
 }
 
 
@@ -18,32 +22,23 @@ for (let i = 0; i < 9; i++ ) {
    tile.addEventListener('click', selectTile);
    document.getElementById('board').appendChild(tile);
 }
-setInterval(setMole, 1000); //We will use 1000 miliseconds which equals to 1 seconds for everytime the Mole appears on the screen.
-setInterval(setbomb, 2000); //We will use 2000 miliseconds which equals to 2 seconds for everytime the Bomb appears on the screen.
+//We will use 1000 miliseconds which equals to 1 seconds for everytime the Mole appears on the screen.
+ //We will use 2000 miliseconds which equals to 2 seconds for everytime the Bomb appears on the screen.
 }
-
 
 function init(){
    clearInterval(barInterval);
-   gameOver = false
-   score = 0
+   clearInterval(moleInterval);
+   clearInterval(bombInterval);
+   gameOver = false;
+   score = 0;
    gameDuration = 30;
-   currentMole = '';
-   currentbomb = '';
-   currentbomb.innerHTML = '';
-   currentMole.innerHTML = '';
-   barInterval = setInterval(progressbarframe, 10);
    barNum = gameDuration*1000;
-   barDen = gameDuration*1000;
-   currentbarNum = barNum/barDen;
    document.getElementById('score').textContent = '0';
    document.getElementById('message').textContent = '';
-   document.getElementById('board').innerHTML = '';
-   setInterval(setMole, 1000); 
-   setInterval(setbomb, 2000);
-   num = getRandomTile();
-   currentbarNum = barNum/barDen;
-   setGame();
+   barInterval = setInterval(progressbarframe, 10);
+   moleInterval = setInterval(setMole, 1000); 
+   bombInterval = setInterval(setbomb, 2000);
 }
 
 
