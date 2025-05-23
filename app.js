@@ -142,6 +142,7 @@ const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', init);
 
 //Code Graveyard comments 
+ 
 //This represents the current moletile
 
 //This represents the bomb tile
@@ -179,6 +180,8 @@ resetBtn.addEventListener('click', init);
 //progress bar countdown timer
 
 //represents the seconds for the bar
+
+// 3 sets of colors which are used on the bar. green, orange and thne red.
 
 //win/lose logic
 
